@@ -82,14 +82,6 @@ public class Myservice extends Service {
     }
 
 
-
-
-
-
-
-
-
-
     public class AsyncLogin extends AsyncTask<String, String, String> {
         HttpURLConnection conn;
         URL url = null;
@@ -110,7 +102,7 @@ public class Myservice extends Service {
 
 
                 // Enter URL address where your php file resides
-                url = new URL("http://maitlibrary.pe.hu/bikerszz/login.inc.php");
+                url = new URL("http://maitlibrary.pe.hu/bikerszz/result.inc.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -195,22 +187,22 @@ public class Myservice extends Service {
             //this method will be running on UI thread
 
 
-            if (result.equalsIgnoreCase("true")) {
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
-                Log.i("info", "onPostExecute: " + result);
+//            if (result.equalsIgnoreCase("true")) {
+//                /* Here launching another activity when login successful. If you persist login state
+//                use sharedPreferences of Android. and logout button to clear sharedPreferences.
+//                 */
+//                Log.i("info", "onPostExecute: " + result);
 
-            } else if (result.equalsIgnoreCase("false")) {
-
-                // If username and password does not match display a error message
-            Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_LONG).show();
-
-            } else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-
-            Toast.makeText(getApplicationContext(), "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
-
-            }
+//            } else if (result.equalsIgnoreCase("false")) {
+//
+//                // If username and password does not match display a error message
+//            Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_LONG).show();
+//
+//            } else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
+//
+//            Toast.makeText(getApplicationContext(), "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+//
+//            }
 
             cancel(true);
             try {
