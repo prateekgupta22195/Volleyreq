@@ -41,7 +41,9 @@ import android.widget.Toast;
 import static android.R.attr.password;
 
 public class MainActivity extends Activity {
-
+    public static EditText name ;
+    public static String nameString;
+    public static String messages;
     String msg = "Android : ";
 
     /** Called when the activity is first created. */
@@ -49,11 +51,17 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        name = (EditText)findViewById(R.id.inputEmail) ;
         Log.d(msg, "The onCreate() event");
         startService(new Intent(getBaseContext(), Myservice.class));
+    }
 
 
-
+    public void goButton(View view) {
+        Toast.makeText(this, "Cancel pressed", Toast.LENGTH_LONG).show();
+        nameString = name.getText().toString();
+        Intent intent = new Intent(getBaseContext(), Chat.class);
+        startActivity(intent);
     }
 
 }

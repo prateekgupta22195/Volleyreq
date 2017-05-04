@@ -12,7 +12,11 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,13 +28,13 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created by root on 30/4/17.
  */
 
 public class Myservice extends Service {
-
 
     @Nullable
     @Override
@@ -49,7 +53,7 @@ public class Myservice extends Service {
                 this.getApplicationContext(), 234324243, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
-                + (2 * 1000), pendingIntent);
+                + (1000), pendingIntent);
 
 
 
@@ -65,7 +69,7 @@ public class Myservice extends Service {
                 this.getApplicationContext(), 234324243, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
-                + (2 * 1000), pendingIntent);
+                + (1000), pendingIntent);
     }
 
 
@@ -77,7 +81,7 @@ public class Myservice extends Service {
                 this.getApplicationContext(), 234324243, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
-                + (2 * 1000), pendingIntent);
+                + ( 1000), pendingIntent);
 
     }
 
@@ -191,7 +195,9 @@ public class Myservice extends Service {
 //                /* Here launching another activity when login successful. If you persist login state
 //                use sharedPreferences of Android. and logout button to clear sharedPreferences.
 //                 */
-//                Log.i("info", "onPostExecute: " + result);
+                Log.i("info", "onPostExecute: " + result);
+                    MainActivity.messages = result;
+
 
 //            } else if (result.equalsIgnoreCase("false")) {
 //
@@ -206,7 +212,7 @@ public class Myservice extends Service {
 
             cancel(true);
             try {
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
 
                 stopService(new Intent(getBaseContext(), Myservice.class));
 
