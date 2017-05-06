@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         name = (EditText)findViewById(R.id.inputEmail) ;
         Log.d(msg, "The onCreate() event");
-        startService(new Intent(getBaseContext(), Myservice.class));
+        startService(new Intent(MainActivity.this, Myservice.class));
     }
 
 
