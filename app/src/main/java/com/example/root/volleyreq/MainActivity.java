@@ -26,6 +26,7 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -51,6 +52,13 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        String manufacturer = "xiaomi";
+//        if(manufacturer.equalsIgnoreCase(android.os.Build.MANUFACTURER)) {
+//            //this will open auto start screen where user can enable permission for your app
+//            Intent intent = new Intent();
+//            intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
+//            startActivity(intent);
+//        }
         name = (EditText)findViewById(R.id.inputEmail) ;
         Log.d(msg, "The onCreate() event");
         startService(new Intent(getBaseContext(), Myservice.class));
