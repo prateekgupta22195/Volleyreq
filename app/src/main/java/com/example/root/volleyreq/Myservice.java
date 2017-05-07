@@ -46,7 +46,6 @@ public class Myservice extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         // Let it continue running until it is stopped.
         Log.i("inside", "onStartCommand: ");
-//            new AsyncLogin().execute("prateek", "gupta");
             new ReceiveMessages(this).receive_m();
 
          intent = new Intent(this, RestartService.class);

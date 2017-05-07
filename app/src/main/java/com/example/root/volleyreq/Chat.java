@@ -61,11 +61,11 @@ public class Chat extends AppCompatActivity {
                     l1.setAdapter(adp);
                     oldMessage = (MainActivity.messages);
                 }
-                handler.postDelayed(this, 50);
+                handler.postDelayed(this, 1000);
             }
         };
 
-        handler.postDelayed(r, 50);
+        handler.postDelayed(r, 1000);
 
 
     }
